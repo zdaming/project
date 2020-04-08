@@ -1,0 +1,26 @@
+$h100: 100%;
+
+html {
+  height: $h100;
+  box-sizing: border-box;
+}
+
+body {
+  height: $h100;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+#app {
+  height: $h100;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@import './flex.scss';
