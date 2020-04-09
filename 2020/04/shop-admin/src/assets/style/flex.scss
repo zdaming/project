@@ -1,12 +1,18 @@
-.flex, .flex-aic, .flex-jcc-aic {
+%flex {
   display: flex;
 }
 
+.flex {
+  @extend %flex;
+}
+
 .flex-aic {
+  @extend %flex;
   align-items: center;
 }
 
 .flex-jcc-aic {
+  @extend %flex;
   justify-content: center;
   align-items: center;
 }

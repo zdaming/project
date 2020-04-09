@@ -13,8 +13,10 @@ import '@assets/style/index.scss'
 
 // 导入icons
 import '@/icons'
+// 权限控制
+import '@/permission'
 
-Vue.use(ElementUI, { size: 'small' })
+Vue.use(ElementUI, { size: 'medium' })
 
 Vue.config.productionTip = false
 
