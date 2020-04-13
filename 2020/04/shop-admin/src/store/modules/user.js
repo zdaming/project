@@ -1,4 +1,5 @@
-import { getToken, setToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/utils/auth'
+import { resetRouter } from '@/router'
 
 const state = {
   token: getToken(),
@@ -32,6 +33,14 @@ const actions = {
     const roles = ['admin']
     commit('SET_NAME', name)
     commit('SET_ROLES', roles)
+  },
+
+  // user 退出
+  logout ({ commit }) {
+    commit('SET_TOKEN', '')
+    commit('SET_ROLES', [])
+    removeToken()
+    resetRouter()
   }
 }
 

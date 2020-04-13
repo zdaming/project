@@ -32,6 +32,17 @@ export const constantRoutes = [
     component: () => import('@/views/login/index')
   },
   {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index')
+      }
+    ]
+  },
+  {
     path: '/',
     redirect: '/dashboard',
     component: Layout,
@@ -55,10 +66,11 @@ export const asyncRoutes = [
     path: '/a',
     component: Layout,
     redirect: '/a/a1',
-    name: '测试a',
+    name: '测试1',
     meta: {
-      title: '测试a',
-      icon: 'lock'
+      title: '测试1',
+      icon: 'lock',
+      roles: ['admin']
     },
     children: [
       {
@@ -75,6 +87,161 @@ export const asyncRoutes = [
         name: '测试1-2',
         meta: {
           title: '测试1-2'
+        }
+      }
+    ]
+  },
+  {
+    path: '/b',
+    component: Layout,
+    redirect: '/b/b1',
+    name: '测试2',
+    meta: {
+      title: '测试2',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'b1',
+        component: () => import('@/views/Test'),
+        name: '测试2-1',
+        meta: {
+          title: '测试2-1'
+        }
+      },
+      {
+        path: 'b2',
+        component: () => import('@/views/Test'),
+        name: '测试2-2',
+        meta: {
+          title: '测试2-2'
+        }
+      }
+    ]
+  },
+  {
+    path: '/c',
+    component: Layout,
+    redirect: '/c/c1',
+    name: '测试3',
+    meta: {
+      title: '测试3',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'c1',
+        component: () => import('@/views/Test'),
+        redirect: '/c/c1/c1',
+        name: '测试3-1',
+        meta: {
+          title: '测试3-1'
+        },
+        children: [
+          {
+            path: 'c1',
+            component: () => import('@/views/Test'),
+            name: '测试3-1-1',
+            meta: {
+              title: '测试3-1-1'
+            }
+          },
+          {
+            path: 'c2',
+            component: () => import('@/views/Test'),
+            name: '测试3-1-2',
+            meta: {
+              title: '测试3-1-2'
+            }
+          }
+        ]
+      },
+      {
+        path: 'c2',
+        component: () => import('@/views/Test'),
+        name: '测试3-2',
+        meta: {
+          title: '测试3-2'
+        }
+      }
+    ]
+  },
+  {
+    path: '/d',
+    component: Layout,
+    redirect: '/d/d1',
+    name: '测试4',
+    meta: {
+      title: '测试4',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'd1',
+        component: () => import('@/views/Test'),
+        name: '测试4-1',
+        meta: {
+          title: '测试4-1'
+        }
+      },
+      {
+        path: 'd2',
+        component: () => import('@/views/Test'),
+        name: '测试4-2',
+        meta: {
+          title: '测试4-2'
+        }
+      },
+      {
+        path: 'd3',
+        component: () => import('@/views/Test'),
+        name: '测试4-3',
+        meta: {
+          title: '测试4-3'
+        }
+      }
+    ]
+  },
+  {
+    path: '/e',
+    component: Layout,
+    redirect: '/e/e1',
+    name: '测试5',
+    meta: {
+      title: '测试5',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'e1',
+        component: () => import('@/views/Test'),
+        name: '测试5-1',
+        meta: {
+          title: '测试5-1'
+        }
+      },
+      {
+        path: 'e2',
+        component: () => import('@/views/Test'),
+        name: '测试5-2',
+        meta: {
+          title: '测试5-2'
+        }
+      },
+      {
+        path: 'e3',
+        component: () => import('@/views/Test'),
+        name: '测试5-3',
+        meta: {
+          title: '测试5-3'
+        }
+      },
+      {
+        path: 'e4',
+        component: () => import('@/views/Test'),
+        name: '测试5-4',
+        meta: {
+          title: '测试5-4'
         }
       }
     ]

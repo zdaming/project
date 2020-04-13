@@ -1,5 +1,6 @@
 <template>
   <section>
+    <logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :background-color="variables.menuBg"
@@ -18,12 +19,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Logo from './logo'
 import SidebarItem from './sidebarItem'
 import variables from '@assets/style/variables.scss'
 
 export default {
   name: 'LayoutAsideMenu',
   components: {
+    Logo,
     SidebarItem
   },
   computed: {

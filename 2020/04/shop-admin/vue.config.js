@@ -5,6 +5,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+  publicPath: '/',
   chainWebpack: config => {
     config.plugins.delete('preload') // TODO: need test
     config.plugins.delete('prefetch') // TODO: need test
@@ -33,6 +34,6 @@ module.exports = {
       .end()
   },
   devServer: {
-    open: true  //打开浏览器窗口
+    open: true // 打开浏览器窗口
   }
 }

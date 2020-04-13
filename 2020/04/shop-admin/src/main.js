@@ -16,7 +16,15 @@ import '@/icons'
 // 权限控制
 import '@/permission'
 
+// 全局filters
+import * as filters from './filters'
+
 Vue.use(ElementUI, { size: 'medium' })
+
+// 全局过滤器
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 Vue.config.productionTip = false
 

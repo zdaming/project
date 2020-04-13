@@ -68,7 +68,7 @@ export default {
         if (valid) {
           this.loading = true
           setTimeout(() => {
-            this.$store.dispatch('user/login')
+            this.$store.dispatch('user/login', this.loginForm)
             this.$message.success('登录成功')
             this.$router.push('/')
             this.loading = false
@@ -100,7 +100,7 @@ export default {
   .login-container {
     min-height: 100%;
     width: 100%;
-    background: url('../../assets/images/login_bg_02.jpg') no-repeat top left;
+    background: url('../../assets/images/login_bg_01.jpg') no-repeat top center;
     background-size: cover;
     overflow: hidden;
 

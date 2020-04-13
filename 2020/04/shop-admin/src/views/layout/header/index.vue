@@ -7,7 +7,7 @@
       <el-dropdown class="fl" trigger="click" @command="handleCommand">
         <span class="el-dropdown-link">
           <i class="el-icon-s-custom"></i>
-          <span>admin</span>
+          <span>{{ name }}</span>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import Breadcrumb from '@/components/Breadcrumb'
 import Screenfull from '@/components/Screenfull'
@@ -32,6 +33,14 @@ export default {
     Breadcrumb,
     Screenfull
   },
+  computed: {
+    ...mapGetters([
+      'name'
+    ]),
+    username () {
+      return this.name
+    }
+  },
   methods: {
     handleCommand (command) {
       switch (command) {
@@ -42,9 +51,23 @@ export default {
           console.log('修改密码')
           break
         case 'logout':
-          console.log('退出登录')
+          this.logout()
           break
       }
+    },
+    logout () {
+      this.$confirm('是否继续退出?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$store.dispatch('user/logout')
+        this.$router.push('/login')
+        this.$message({
+          type: 'success',
+          message: '退出成功!'
+        })
+      }).catch(() => {})
     }
   }
 }
@@ -95,12 +118,22 @@ export default {
     @extend %h100;
     margin-right: 15px;
     padding: 0 8px;
-    line-height: 50px;
     color: #5a5e66;
     cursor: pointer;
 
     &:hover {
       @extend %bg;
+    }
+
+    .el-dropdown-link {
+      display: flex;
+      align-items: center;
+      @extend %h100;
+    }
+
+    .el-icon-s-custom {
+      margin-right: 4px;
+      font-size: 20px;
     }
   }
 </style>
